@@ -1,4 +1,4 @@
-import {Component, useState } from 'react';
+import { useState } from 'react';
 
 import { nanoid } from 'nanoid';
 
@@ -8,11 +8,9 @@ const AddContactForm = ({ onSubmit }) => {
   const idName = nanoid();
   const idNumber = nanoid();
 
-  const [state, setState] = useState({name: '', number: ''});
+  const [state, setState] = useState({ name: '', number: '' });
 
-  console.log(state);
-
-  const inputChange = ({target}) => {
+  const inputChange = ({ target }) => {
     const { name, value } = target;
     setState({
       ...state,
@@ -20,8 +18,7 @@ const AddContactForm = ({ onSubmit }) => {
     });
   };
 
-  const hndSubmit = (s) => {
-
+  const hndSubmit = s => {
     s.preventDefault();
 
     onSubmit({ ...state });
@@ -29,8 +26,8 @@ const AddContactForm = ({ onSubmit }) => {
   };
 
   const reset = () => {
-    setState({...state});
-  }
+    setState({ ...state });
+  };
 
   return (
     <form onSubmit={hndSubmit} className={css.form}>
