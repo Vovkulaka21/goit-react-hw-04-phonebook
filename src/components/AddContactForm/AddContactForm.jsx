@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 
 import { nanoid } from 'nanoid';
 
 import css from './AddContactForm.module.css';
 
 const AddContactForm = ({ onSubmit }) => {
-  const idName = nanoid();
-  const idNumber = nanoid();
+  const idName = useMemo(() => nanoid(), []);
+  const idNumber = useMemo(() => nanoid(), []);
 
   const [state, setState] = useState({ name: '', number: '' });
 
